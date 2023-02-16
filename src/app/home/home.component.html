@@ -1,0 +1,31 @@
+<div id="top">
+  <div class="landing-text">
+    <h1>Thirsty?</h1>
+    <button mat-raised-button color="accent" (click)="getCocktail()">I need a drink...</button>
+  </div>
+</div>
+
+<div *ngIf="cocktail" class="padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <mat-card>
+          <mat-card-content>
+            <img mat-card-image src="{{cocktail.drinks[0]['strDrinkThumb']}}">
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-sm">
+        <h2>How about a {{cocktail.drinks[0]['strDrink']}}?</h2>
+        <button mat-raised-button color="accent" (click)="getVideo()">Show me how its done!</button>
+        <div *ngIf="videos" class="video">
+          <mat-card>
+            <mat-card-content>
+              <youtube-player videoId="{{videos.items[0]['id']['videoId']}}"></youtube-player>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
